@@ -128,7 +128,9 @@ module.exports = function vshmimpcage(dispatch) {
 		SpawnThing(SpawnMarker(80,-275));
 		SpawnThing(SpawnMarker(40,-275));
 	}
-
+	// To use item instead uncomment next line
+	// Just in case, uncommenting means: remove the //
+	// /*
 	function SpawnThing(position){
 		dispatch.toClient('S_SPAWN_COLLECTION', 1, {
 			uid : uid,
@@ -150,8 +152,9 @@ module.exports = function vshmimpcage(dispatch) {
 			unk : 0
 		});
 	}
+	// Uncomment this one too */
 	
-	/* To use item instead of collection just uncomment this block
+	/* To use item instead of collection just delete this line
 	// and comment the other one
 	function SpawnThing(position){
 	dispatch.toClient('S_SPAWN_DROPITEM', 1, {
@@ -173,6 +176,6 @@ module.exports = function vshmimpcage(dispatch) {
 			id : uid
 		});
 	}
-	*/
+	AND THIS LINE */
 
 }
