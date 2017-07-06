@@ -41,7 +41,7 @@ module.exports = function vsimpcage(dispatch) {
 		if (!enabled || !boss) return;
 		if(boss - event.source == 0){
 			currentLocation = {x: event.x,y: event.y,z: event.z,w: event.w};
-			if(event.skill == CAGES[0]){				
+			if(event.stage == 0 && event.skill == CAGES[0]){				
 				setTimeout(PizzaTwo, 7200);
 				setTimeout(PizzaOne, 8200);
 				setTimeout(Inner, 9200);
