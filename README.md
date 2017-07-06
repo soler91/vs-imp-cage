@@ -9,7 +9,7 @@ Comes with 1100 (1.2s) as the default delay value.
 It uses cobala ores as markers but can be changed to another collectionId or an item
 To change the marker to item open index.js and look at the bottom of the script
 
-# Requeriments
+# Requirements
 
 It requires https://github.com/pinkipi/command to work.
 
