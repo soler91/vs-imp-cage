@@ -1,5 +1,5 @@
 const Command = require('command'),
-		BossId = [981,2000]
+		BossId = [981,2000],
 		CAGES = [1205142645,1205142643,1205142642,1205142644];
 
 module.exports = function vshmimpcage(dispatch) {
@@ -30,9 +30,10 @@ module.exports = function vshmimpcage(dispatch) {
 	
 	dispatch.hook('S_LOGIN', 2, (event) => {playerID = event.playerId;});
 	
-	dispatch.hook('S_SPAWN_NPC', 3, {filter: {fake: null}}, (event) => {
+	dispatch.hook('S_BOSS_GAGE_INFO', 2, (event) => {
 		if(event.huntingZoneId === BossId[0] && event.templateId === BossId[1]){
 			boss = event.id;
+			console.log('Boss found');
 		}
 	});
 	
