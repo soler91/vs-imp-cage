@@ -48,21 +48,21 @@ module.exports = function vsimpcage(dispatch) {
 				setTimeout(Donut, 10200);
 				setTimeout(PizzaLast, 11200);
 			}
-			else if(event.skill == CAGES[1]){				
+			else if(event.stage == 0 && event.skill == CAGES[1]){				
 				setTimeout(PizzaOne, 7200);
 				setTimeout(PizzaTwo, 8200);
 				setTimeout(Donut, 9200);
 				setTimeout(Inner, 10200);
 				setTimeout(PizzaLast, 11200);
 			}
-			else if(event.skill == CAGES[2]){				
+			else if(event.stage == 0 && event.skill == CAGES[2]){				
 				setTimeout(PizzaTwo, 6200);
 				setTimeout(Inner, 7200);
 				setTimeout(Donut, 8200);
 				setTimeout(PizzaOne, 9200);
 				setTimeout(PizzaLast, 10200);
 			}
-			else if(event.skill == CAGES[3]){				
+			else if(event.stage == 0 && event.skill == CAGES[3]){				
 				setTimeout(Inner, 6200);
 				setTimeout(PizzaOne, 7200);
 				setTimeout(PizzaTwo, 8200);
