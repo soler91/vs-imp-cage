@@ -1,14 +1,14 @@
 const Command = require('command'),
-		BossId = [981,2000],
+		BossId = [981,2000,781],
 		CAGES = [1205142645,1205142643,1205142642,1205142644];
 
-module.exports = function vshmimpcage(dispatch) {
+module.exports = function vsimpcage(dispatch) {
 	const command = Command(dispatch)
 	let playerID = null,
 		enabled = true,
 		boss = null,
 		uid = 999999999,
-		time = 1200;
+		time = 1100;
 
 	command.add('delay', (str) => {
 		time = parseInt(str);
@@ -17,10 +17,10 @@ module.exports = function vshmimpcage(dispatch) {
 	
 	command.add('impcage', (str) => {
 		if(str == 'off'){
-			command.message('VSHM-Imp cage module toggled off');
+			command.message('VS-Imp cage module toggled off');
 		}
 		else if(str == 'on'){
-			command.message('VSHM-Imp cage module toggled on');
+			command.message('VS-Imp cage module toggled on');
 		}
 		else{
 			command.message('Invalid input');
@@ -31,13 +31,13 @@ module.exports = function vshmimpcage(dispatch) {
 	dispatch.hook('S_LOGIN', 2, (event) => {playerID = event.playerId;});
 	
 	dispatch.hook('S_BOSS_GAGE_INFO', 2, (event) => {
-		if(event.huntingZoneId === BossId[0] && event.templateId === BossId[1]){
+		console.log(event);
+		if(event.huntingZoneId === BossId[0] && event.templateId === BossId[1] || event.huntingZoneId === BossId[2] && event.templateId === BossId[1]){
 			boss = event.id;
-			console.log('Boss found');
 		}
 	});
 	
-	dispatch.hook('S_ACTION_STAGE', 1, {filter: {fake: null}}, (event) => {
+	dispatch.hook('S_ACTION_STAGE', 1, (event) => {
 		if (!enabled || !boss) return;
 		if(boss - event.source == 0){
 			currentLocation = {x: event.x,y: event.y,z: event.z,w: event.w};
