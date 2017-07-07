@@ -31,7 +31,6 @@ module.exports = function vsimpcage(dispatch) {
 	dispatch.hook('S_LOGIN', 2, (event) => {playerID = event.playerId;});
 	
 	dispatch.hook('S_BOSS_GAGE_INFO', 2, (event) => {
-		console.log(event);
 		if(event.huntingZoneId === BossId[0] && event.templateId === BossId[1] || event.huntingZoneId === BossId[2] && event.templateId === BossId[1]){
 			boss = event.id;
 		}
