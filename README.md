@@ -1,10 +1,12 @@
 # vs-imp-cage
+Apparently it doenst work in VS normal mode for now.
+
 Marks safe spot of imp cage in vsnm and vshm (Screenshots soon(tm))
 
 Walk to Flower -> Weed -> Flower -> Weed -> Flower
 
 Demonstration video
-https://www.youtube.com/watch?v=NhxyTW0wsFQ
+https://www.youtube.com/watch?v=MYyAeuXnGGA
 
 # Usage
 For toggling on and off
