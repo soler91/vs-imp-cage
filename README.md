@@ -7,7 +7,10 @@ Demonstration video
 https://www.youtube.com/watch?v=NhxyTW0wsFQ
 
 # Usage
-!impcage on/off
+For toggling on and off
+
+!impcage
+
 !delay value (in ms) : Sets the time it waits before despawning markers
 
 Comes with 1900 (1.9s) as the default delay value.
