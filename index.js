@@ -17,11 +17,13 @@ module.exports = function vsimpcage(dispatch) {
 		command.message('Delay set to: '+time);
 	});
 	
-	command.add('impcage', (str) => {
-		if(str == 'off'){
+	command.add('impcage', () => {
+		if(enabled){
+			enabled = false;
 			command.message('VS-Imp cage module toggled off');
 		}
-		else if(str == 'on'){
+		else if(!enabled){
+			enabled = true;
 			command.message('VS-Imp cage module toggled on');
 		}
 		else{
