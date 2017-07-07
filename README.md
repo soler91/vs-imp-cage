@@ -1,5 +1,6 @@
 # vs-imp-cage
 Marks safe spot of imp cage in vsnm and vshm (Screenshots soon(tm))
+Walk to Flower -> Weed -> Flower -> Weed -> Flower
 Demonstration video
 https://www.youtube.com/watch?v=NhxyTW0wsFQ
 
