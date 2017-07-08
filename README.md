@@ -1,5 +1,5 @@
 # vs-imp-cage
-Apparently it doenst work in VS normal mode for now.
+Now works in normal mode, because why not.
 
 Marks safe spot of imp cage in vsnm and vshm (Screenshots soon(tm))
 
