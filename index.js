@@ -1,6 +1,7 @@
 const Command = require('command'),
-		BossId = [981,2000,781],
-		CAGES = [1205142645,1205142643,1205142642,1205142644],
+		bossId = [981,2000,781],
+		CAGES = [1205142645,1205142643,1205142642,1205142644,
+				1192035442,1192035443,1192035444,1192035445],
 		FIRST = 559,
 		SECOND = 556;
 
@@ -10,7 +11,7 @@ module.exports = function vsimpcage(dispatch) {
 		enabled = true,
 		boss = null,
 		uid = 999999999,
-		time = 1900;
+		time = 1900; //1900 hm, 2200 nm
 
 	command.add('delay', (str) => {
 		time = parseInt(str);
@@ -34,54 +35,100 @@ module.exports = function vsimpcage(dispatch) {
 	
 	dispatch.hook('S_LOGIN', 2, (event) => {playerID = event.playerId;});
 	
+	dispatch.hook('S_LOAD_TOPO', 1, (event) => {
+		if(event.zone == 9781){
+			dungId = event.zone;
+			time = 2200;
+		}
+		else if(event.zone == 9981){
+			dungId = event.zone;
+			time = 1900;
+		}
+	});
+	
 	dispatch.hook('S_BOSS_GAGE_INFO', 2, (event) => {
-		if(event.huntingZoneId === BossId[0] && event.templateId === BossId[1] || event.huntingZoneId === BossId[2] && event.templateId === BossId[1]){
+		if(event.huntingZoneId === bossId[0] && event.templateId === bossId[1] || event.huntingZoneId === bossId[2] && event.templateId === bossId[1]){
 			boss = event.id;
 		}
 	});
 	
 	dispatch.hook('S_ACTION_STAGE', 1, (event) => {
 		if (!enabled || !boss) return;
-		if(boss - event.source == 0){
-			currentLocation = {x: event.x,y: event.y,z: event.z,w: event.w};
-			if(event.stage == 0 && event.skill == CAGES[0]){				
-				setTimeout(PizzaTwo, 6200,FIRST);
-				setTimeout(PizzaOne, 7200,SECOND);
-				setTimeout(Inner, 8200,FIRST);
-				setTimeout(Donut, 9200,SECOND);
-				setTimeout(PizzaLast, 10200,FIRST);
+		if(dungId == 9981){
+			if(boss - event.source == 0){
+				bossCurLocation = {x: event.x,y: event.y,z: event.z,w: event.w};
+				if(event.stage == 0 && event.skill == CAGES[0]){				
+					setTimeout(PizzaTwo, 6200,FIRST);
+					setTimeout(PizzaOne, 7200,SECOND);
+					setTimeout(Inner, 8200,FIRST);
+					setTimeout(Donut, 9200,SECOND);
+					setTimeout(PizzaLast, 10200,FIRST);
+				}
+				else if(event.stage == 0 && event.skill == CAGES[1]){				
+					setTimeout(PizzaOne, 6200,FIRST);
+					setTimeout(PizzaTwo, 7200,SECOND);
+					setTimeout(Donut, 8200,FIRST);
+					setTimeout(Inner, 9200,SECOND);
+					setTimeout(PizzaLast, 10200,FIRST);
+				}
+				else if(event.stage == 0 && event.skill == CAGES[2]){				
+					setTimeout(PizzaTwo, 5200,FIRST);
+					setTimeout(Inner, 6200,SECOND);
+					setTimeout(Donut, 7200,FIRST);
+					setTimeout(PizzaOne, 8200,SECOND);
+					setTimeout(PizzaLast, 9200,FIRST);
+				}
+				else if(event.stage == 0 && event.skill == CAGES[3]){				
+					setTimeout(Inner, 5200,FIRST);
+					setTimeout(PizzaOne, 6200,SECOND);
+					setTimeout(PizzaTwo, 7200,FIRST);
+					setTimeout(Donut, 8200,SECOND);
+					setTimeout(PizzaLast, 9200,FIRST);
+				}
 			}
-			else if(event.stage == 0 && event.skill == CAGES[1]){				
-				setTimeout(PizzaOne, 6200,FIRST);
-				setTimeout(PizzaTwo, 7200,SECOND);
-				setTimeout(Donut, 8200,FIRST);
-				setTimeout(Inner, 9200,SECOND);
-				setTimeout(PizzaLast, 10200,FIRST);
-			}
-			else if(event.stage == 0 && event.skill == CAGES[2]){				
-				setTimeout(PizzaTwo, 5200,FIRST);
-				setTimeout(Inner, 6200,SECOND);
-				setTimeout(Donut, 7200,FIRST);
-				setTimeout(PizzaOne, 8200,SECOND);
-				setTimeout(PizzaLast, 9200,FIRST);
-			}
-			else if(event.stage == 0 && event.skill == CAGES[3]){				
-				setTimeout(Inner, 5200,FIRST);
-				setTimeout(PizzaOne, 6200,SECOND);
-				setTimeout(PizzaTwo, 7200,FIRST);
-				setTimeout(Donut, 8200,SECOND);
-				setTimeout(PizzaLast, 9200,FIRST);
+		}
+		else if(dungId == 9781){
+			if(boss - event.source == 0){
+				bossCurLocation = {x: event.x,y: event.y,z: event.z,w: event.w};
+				if(event.stage == 0 && event.skill == CAGES[7]){
+					setTimeout(PizzaTwo, 8200,FIRST);
+					setTimeout(PizzaOne, 9200,SECOND);
+					setTimeout(Inner, 10200,FIRST);
+					setTimeout(Donut, 11200,SECOND);
+					setTimeout(PizzaLast, 12200,FIRST);
+				}
+				else if(event.stage == 0 && event.skill == CAGES[5]){
+					setTimeout(PizzaOne, 8200,FIRST);
+					setTimeout(PizzaTwo, 9200,SECOND);
+					setTimeout(Donut, 10200,FIRST);
+					setTimeout(Inner, 11200,SECOND);
+					setTimeout(PizzaLast, 12200,FIRST);
+				}
+				else if(event.stage == 0 && event.skill == CAGES[4]){
+					setTimeout(PizzaTwo, 7200,FIRST);
+					setTimeout(Inner, 8200,SECOND);
+					setTimeout(Donut, 9200,FIRST);
+					setTimeout(PizzaOne, 10200,SECOND);
+					setTimeout(PizzaLast, 11200,FIRST);
+				}
+				else if(event.stage == 0 && event.skill == CAGES[6]){
+					setTimeout(Inner, 7200,FIRST);
+					setTimeout(PizzaOne, 8200,SECOND);
+					setTimeout(PizzaTwo, 9200,FIRST);
+					setTimeout(Donut, 10200,SECOND);
+					setTimeout(PizzaLast, 11200,FIRST);
+				}
 			}
 		}
     });
 	
 	function SpawnLoc(degrees, radius) {
 	let r = null, rads = null, finalrad = null, spawnx = null, spawny = null, pos = null;
-	r = (currentLocation.w / 0x8000) * Math.PI;
+	r = (bossCurLocation.w / 0x8000) * Math.PI;
 	rads = (degrees * Math.PI/180);
 	finalrad = r - rads;
-	spawnx = currentLocation.x + radius * Math.cos(finalrad);
-    spawny = currentLocation.y + radius * Math.sin(finalrad);
+	spawnx = bossCurLocation.x + radius * Math.cos(finalrad);
+    spawny = bossCurLocation.y + radius * Math.sin(finalrad);
 	pos = {x:spawnx,y:spawny};
 		return pos;
 	}
@@ -142,7 +189,7 @@ module.exports = function vsimpcage(dispatch) {
 			amount : 1,
 			x : position.x,
 			y : position.y,
-			z : currentLocation.z,
+			z : bossCurLocation.z,
 			unk1 : 0,
 			unk2 : 0
 		});
@@ -165,7 +212,7 @@ module.exports = function vsimpcage(dispatch) {
 			id: uid,
 			x: position.x,
 			y: position.y,
-			z: currentLocation.z,
+			z: bossCurLocation.z,
 			item: 6515, //Ancient wish
 			amount: 1,
 			expiry: 999999,
